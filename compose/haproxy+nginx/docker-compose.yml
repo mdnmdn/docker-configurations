@@ -12,17 +12,14 @@ haproxy:
 web1:
   image: nginx
   container_name: web1
-#  ports:
-#    - "80:80"
-#  volumes:
-#    - ./app:/var/www/html/
+  volumes:
+    - ./www:/usr/share/nginx/html
+#    - ./cfg/nginx/:/etc/nginx/:ro
 web2:
   image: nginx
   container_name: web2
-#  ports:
-#    - "80:80"
-#  volumes:
-#    - ./app:/var/www/html/
-
+  volumes:
+    - ./www:/usr/share/nginx/html
+#    - ./cfg/nginx/:/etc/nginx/:ro
 # docker-compose up
 
