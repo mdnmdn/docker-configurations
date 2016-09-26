@@ -1,0 +1,28 @@
+haproxy:
+  image: haproxy
+  container_name: lb
+  links:
+    - web1
+    - web2
+  ports:
+    - "8000:80"
+    - "8001:1936"
+  volumes:
+    - ./cfg/haproxy/:/usr/local/etc/haproxy/
+web1:
+  image: nginx
+  container_name: web1
+#  ports:
+#    - "80:80"
+#  volumes:
+#    - ./app:/var/www/html/
+web2:
+  image: nginx
+  container_name: web2
+#  ports:
+#    - "80:80"
+#  volumes:
+#    - ./app:/var/www/html/
+
+# docker-compose up
+
