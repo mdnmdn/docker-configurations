@@ -1,7 +1,7 @@
 web:
-#  build: .
-#  command: php -S 0.0.0.0:8000 -t /app
   image: php:5.6.25-apache
+#  image: mdnmdn/php-7.0.13-apache
+#  image: mdnmdn/php-5.6-apache
   container_name: web-container
   links:
     - db
@@ -16,18 +16,13 @@ db:
     - "3306:3306"
   environment:
     MYSQL_ROOT_PASSWORD: io
-    MYSQL_USER: mdn
+    MYSQL_USER: user
     MYSQL_PASSWORD: io
     MYSQL_DATABASE: myapp
+    TERM: linux
   volumes:
     - ./data/db:/var/lib/mysql
 
 
-#https://hub.docker.com/_/php/
+#docker exec -ti web bash
 
-#docker exec -ti magento-web bash
-
-
-#apt-get update  
-#apt-get install -y libmcrypt-dev libgd-dev libxml2-dev 
-#docker-php-ext-install gd mcrypt soap pdo_mysql
